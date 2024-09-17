@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=New+Amsterdam&display=swap');
+
+body{
+    background-color: rgb(255, 240, 222);
+}
+h1{
+    font-family: "new amsterdam";
+    color: #af5420;
+    margin-left: 2em;
+}
+    
+.navbar-nav{
+    margin-left: 50em;
+}
+.navbar-nav .nav-item .nav-link{
+    color: #000000;
+    transition: 0.5s color ease;
+    font-family: "new amsterdam";
+    font-size: 1.5em;
+    margin: 0em 1.2em;
+}
+.container {
+    gap: 20px;
+}
+.grid-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+  
