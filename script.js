@@ -1,15 +1,13 @@
-const container = document.getElementById('todo-container');
+var container = document.getElementById('todo-container');
 
-let completedCount = 0;
-
-function checkCompletion() {
+let count = 0;
+function complete() {
   return new Promise((resolve) => {
-    if (completedCount >= 5) {
-      resolve('Congrats. 5 Tasks have been Successfully Completed');
+    if (count == 5) {
+      resolve();
     }
   });
 }
-
 
 fetch('https://jsonplaceholder.typicode.com/todos')
   .then(response => response.json())
@@ -20,19 +18,18 @@ fetch('https://jsonplaceholder.typicode.com/todos')
 
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
-      checkbox.checked = data.completed;
       checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
-          completedCount++;
-        } else {
-          completedCount--;
+          count++;
         }
-        checkCompletion().then(alertMessage => alert(alertMessage));
-      });
 
-      todoItem.innerHTML = `
-        <h5>${data.title}</h5>
-        <p>Status: ${data.completed ? 'Completed' : 'Pending'}</p>`;
+complete()
+.then(() => alert('Congrats. 5 Tasks have been Successfully Completed'));
+});
+
+      todoItem.innerHTML = 
+      `<h5>${data.title}</h5>
+        <p> ${data.completed ? 'Completed' : 'Pending'}</p>`;
         todoItem.appendChild(checkbox);
       container.appendChild(todoItem);
     });
